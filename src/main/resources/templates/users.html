@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        TABLE {
+            width: 90%;
+            border: 30px;
+            border-spacing: 7px 5px;
+        }
+
+        TD {
+            background: #e0cfbb;
+            border: 1px;
+            padding: 5px;
+        }
+
+    </style>
 </head>
 <body>
 Admin? this is a users table
+
+<br>
+<table>
+    <tr style="background-color: #b27e4f">
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    <th:block th:each="user : ${users}">
+
+        <tr>
+
+            <td th:text="${user.id}">...</td>
+            <td th:text="${user.name}">...</td>
+            <td th:text="${user.lastName}">...</td>
+            <td th:text="${user.age}">...</td>
+            <td th:text="${user.email}">...</td>
+
+        </tr>
+    </th:block>
+</table>
+<input type=button value="Add new..."
+       onclick="window.location.href = 'admin/addUser'"/>
 
 <a th:href="@{/logout}">Logout</a>
 </body>
