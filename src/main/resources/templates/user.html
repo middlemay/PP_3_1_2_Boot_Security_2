@@ -12,15 +12,17 @@
         <th>Last Name</th>
         <th>Age</th>
         <th>Email</th>
+        <th>Role</th>
     </tr>
-    <th:block th:each="user : ${users}">
+    <th:block th:each="user : ${user}">
 
         <tr>
             <td th:text="${user.id}">...</td>
             <td th:text="${user.name}">...</td>
-            <td th:text="${user.surname}">...</td>
+            <td th:text="${user.lastName}">...</td>
             <td th:text="${user.age}">...</td>
             <td th:text="${user.email}">...</td>
+            <td th:each="role : ${user.getRoles()}" th:text="${role.getName()}"></td>
 
         </tr>
     </th:block>
